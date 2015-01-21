@@ -91,7 +91,7 @@ function sendCurrXp()
 end
 
 function handlerFunc(self, event, arg1, arg2, arg3, arg4)
-	if event == "CHAT_MSG_COMBAT_XP_GAIN" then
+	if event == "PLAYER_XP_UPDATE" then
 		sendCurrXp();
 		return
 	end
@@ -115,7 +115,8 @@ function handlerFunc(self, event, arg1, arg2, arg3, arg4)
 	end
 end
 
-frame:RegisterEvent("CHAT_MSG_COMBAT_XP_GAIN");
+frame:RegisterEvent("PLAYER_XP_UPDATE");
+
 frame:RegisterEvent("CHAT_MSG_ADDON")
 
 frame:SetScript("OnEvent", handlerFunc)
