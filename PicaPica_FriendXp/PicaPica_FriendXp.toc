@@ -1,0 +1,5 @@
+## Interface: 60000
+## Title: Pica Pica Friend XP
+## Notes: My first AddOn
+#PicaPica_FriendXp.lua
+PicaPica_FriendXp.xml
