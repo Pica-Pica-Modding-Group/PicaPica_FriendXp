@@ -73,9 +73,7 @@ end)
 
 
 
-function HelloWorld()
-	print("Hello, World!");
-	
+function HelloWorld()	
 	UpdateText("test", 0, 0, "")
 end
 
@@ -97,18 +95,12 @@ function handlerFunc(self, event, arg1, arg2, arg3, arg4)
 	end
 	
 	if event == "CHAT_MSG_ADDON" then
-		print("arg1 = "..arg1)
-		print("arg2 = "..arg2)
-		print("arg3 = "..arg3)
-		print("arg4 = "..arg4)
 		prefix = arg1
 		msg = arg2
 		sender = Split(arg4, "-")
 		local playerName = UnitName("player");
-		print(sender[1])
 		
 		if prefix == MSG_PREFIX and sender[1] ~= playerName then
-			print("[Friend] "..msg)
 			local params = Split(msg, ";")
 			UpdateText(sender[1], params[1], params[2], params[3])
 		end
