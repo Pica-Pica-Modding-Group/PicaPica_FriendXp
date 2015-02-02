@@ -74,7 +74,7 @@ end)
 
 
 function HelloWorld()	
-	UpdateText("test", 0, 0, "")
+	UpdateText("test", 0, 0, "test")
 end
 
 function sendCurrXp()
@@ -124,11 +124,11 @@ function UpdateText(name, xp, maxXp, misc)
 			"<br/>" ..
 			  name ..
 			  "<br/>" ..
-			  ..misc..
+				misc ..
 			"</p>"..
 		 "</body>"..
 	   "</html>";
-	frame:SetWidth((string.len("Curr XP: "..xp.."/"..maxXp .. " ("..misc..")") * fontSize) * 0.9);
+	frame:SetWidth((string.len(misc) * fontSize) * 0.9);
 	--frame:SetWidth((string.len(name) * fontSize) * 0.9);
 	frame:SetText(html);
 end
