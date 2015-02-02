@@ -124,7 +124,7 @@ function UpdateText(name, xp, maxXp, misc)
 			"<br/>" ..
 			  name ..
 			  "<br/>" ..
-			  "Curr XP: "..xp .. "&#47;"..maxXp .. " ("..misc..")"..
+			  ..misc..
 			"</p>"..
 		 "</body>"..
 	   "</html>";
