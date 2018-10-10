@@ -80,7 +80,8 @@ end
 function sendCurrXp()
 	XP = UnitXP("player")
 	XPMax = UnitXPMax("player")
-	Misc = (XPMax - XP) ..", "..floor( (XP / XPMax)*100 ).."%"
+	-- Misc = (XPMax - XP) ..", "..floor( (XP / XPMax)*100 ).."%"
+	Misc = floor( (XP / XPMax)*100 ).."%"
 	-- msg = "Your friend XP is currently at "..floor( (XP / XPMax)*100 ).."%."
 	--print("[ME] "..msg)
 	--SendChatMessage(msg ,"PARTY" ,"COMMON" )
