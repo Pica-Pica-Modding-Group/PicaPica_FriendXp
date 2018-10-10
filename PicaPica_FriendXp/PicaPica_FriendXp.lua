@@ -26,7 +26,7 @@ function Split(str, delim, maxNb)
     return result
 end
 
-success = RegisterAddonMessagePrefix(MSG_PREFIX)
+success = C_ChatInfo.RegisterAddonMessagePrefix(MSG_PREFIX)
 
 local width = 32;
 local height = 32;
@@ -84,7 +84,7 @@ function sendCurrXp()
 	-- msg = "Your friend XP is currently at "..floor( (XP / XPMax)*100 ).."%."
 	--print("[ME] "..msg)
 	--SendChatMessage(msg ,"PARTY" ,"COMMON" )
-	SendAddonMessage(MSG_PREFIX, XP..";"..XPMax..";"..Misc, "PARTY")
+	C_ChatInfo.SendAddonMessage(MSG_PREFIX, XP..";"..XPMax..";"..Misc, "PARTY")
 	-- DEFAULT_CHAT_FRAME:AddMessage("Your XP is currently at "..floor( (XP / XPMax)*100 ).."%.",1,0,0)
 end
 
