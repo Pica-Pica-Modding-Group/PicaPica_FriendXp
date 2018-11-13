@@ -26,7 +26,7 @@ function Split(str, delim, maxNb)
     return result
 end
 
-success = C_ChatInfo.RegisterAddonMessagePrefix(MSG_PREFIX)
+local success = C_ChatInfo.RegisterAddonMessagePrefix(MSG_PREFIX)
 
 local width = 32;
 local height = 32;
