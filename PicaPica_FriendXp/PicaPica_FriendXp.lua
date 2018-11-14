@@ -74,7 +74,7 @@ end)
 
 
 function HelloWorld()	
-	UpdateText("test", 0, 0, "")
+	UpdateText("Pica Pica Friend XP - No Group Members", 0, 0, "")
 end
 
 function sendCurrXp()
