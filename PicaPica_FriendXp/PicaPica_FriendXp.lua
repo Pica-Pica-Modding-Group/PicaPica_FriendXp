@@ -1,3 +1,22 @@
+local function ReadableNumber(num, places)
+  local ret
+  local placeValue = ("%%.%df"):format(places or 0)
+  if not num then
+      return 0
+  elseif num >= 1000000000000 then
+      ret = placeValue:format(num / 1000000000000) .. "T" -- trillion
+  elseif num >= 1000000000 then
+      ret = placeValue:format(num / 1000000000) .. "B" -- billion
+  elseif num >= 1000000 then
+      ret = placeValue:format(num / 1000000) .. "M" -- million
+  elseif num >= 1000 then
+      ret = placeValue:format(num / 1000) .. "K" -- thousand
+  else
+      ret = num -- hundreds
+  end
+  return ret
+end
+
 local MSG_PREFIX = "PPFXP";
 
 -- Compatibility: Lua-5.0
@@ -79,13 +98,16 @@ end
 
 function sendCurrXp()
 	XP = UnitXP("player")
-	XPMax = UnitXPMax("player")
+  XPMax = UnitXPMax("player")
+  
+  XPTrunc = ReadableNumber(XP, 2)
+  XPMaxTrunc = ReadableNumber(XPMax, 2)
 	-- Misc = (XPMax - XP) ..", "..floor( (XP / XPMax)*100 ).."%"
 	Misc = floor( (XP / XPMax)*100 ).."%"
 	-- msg = "Your friend XP is currently at "..floor( (XP / XPMax)*100 ).."%."
 	--print("[ME] "..msg)
 	--SendChatMessage(msg ,"PARTY" ,"COMMON" )
-	C_ChatInfo.SendAddonMessage(MSG_PREFIX, XP..";"..XPMax..";"..Misc, "PARTY")
+	C_ChatInfo.SendAddonMessage(MSG_PREFIX, XPTrunc..";"..XPMaxTrunc..";"..Misc, "PARTY")
 	-- DEFAULT_CHAT_FRAME:AddMessage("Your XP is currently at "..floor( (XP / XPMax)*100 ).."%.",1,0,0)
 end
 
