@@ -90,7 +90,7 @@ function sendCurrXp()
 end
 
 function handlerFunc(self, event, arg1, arg2, arg3, arg4)
-	if event == "PLAYER_XP_UPDATE" then
+	if event == "PLAYER_XP_UPDATE" or event == "PARTY_MEMBERS_CHANGED" or event == "PARTY_MEMBER_ENABLE" then
 		sendCurrXp();
 		return
 	end
