@@ -97,13 +97,13 @@ function HelloWorld()
 end
 
 function sendCurrXp()
-	XP = UnitXP("player")
-  XPMax = UnitXPMax("player")
+	local XP = UnitXP("player")
+	local XPMax = UnitXPMax("player")
   
-  XPTrunc = ReadableNumber(XP, 2)
-  XPMaxTrunc = ReadableNumber(XPMax, 2)
+	local XPTrunc = ReadableNumber(XP, 2)
+	local XPMaxTrunc = ReadableNumber(XPMax, 2)
 	-- Misc = (XPMax - XP) ..", "..floor( (XP / XPMax)*100 ).."%"
-	Misc = floor( (XP / XPMax)*100 ).."%"
+	local Misc = floor( (XP / XPMax)*100 ).."%"
 	-- msg = "Your friend XP is currently at "..floor( (XP / XPMax)*100 ).."%."
 	--print("[ME] "..msg)
 	--SendChatMessage(msg ,"PARTY" ,"COMMON" )
