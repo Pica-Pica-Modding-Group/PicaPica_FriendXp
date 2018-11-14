@@ -90,7 +90,7 @@ function sendCurrXp()
 end
 
 function handlerFunc(self, event, arg1, arg2, arg3, arg4)
-	if event == "PLAYER_XP_UPDATE" or event == "PARTY_MEMBERS_CHANGED" or event == "PARTY_MEMBER_ENABLE" then
+	if event == "PLAYER_XP_UPDATE" or event == "GROUP_ROSTER_UPDATE" or event == "PARTY_MEMBER_ENABLE" then
 		sendCurrXp();
 		return
 	end
@@ -110,6 +110,7 @@ end
 
 frame:RegisterEvent("PLAYER_XP_UPDATE");
 frame:RegisterEvent("PARTY_MEMBER_ENABLE");
+frame:RegisterEvent("GROUP_ROSTER_UPDATE");
 
 frame:RegisterEvent("CHAT_MSG_ADDON")
 
