@@ -109,6 +109,8 @@ function handlerFunc(self, event, arg1, arg2, arg3, arg4)
 end
 
 frame:RegisterEvent("PLAYER_XP_UPDATE");
+frame:RegisterEvent("PARTY_MEMBERS_CHANGED");
+frame:RegisterEvent("PARTY_MEMBER_ENABLE");
 
 frame:RegisterEvent("CHAT_MSG_ADDON")
 
