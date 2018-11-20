@@ -106,16 +106,19 @@ function sendCurrXp()
 	local Misc = floor( (XP / XPMax)*100 ).."%"
 	-- msg = "Your friend XP is currently at "..floor( (XP / XPMax)*100 ).."%."
 	--print("[ME] "..msg)
-	--SendChatMessage(msg ,"PARTY" ,"COMMON" )
-	C_ChatInfo.SendAddonMessage(MSG_PREFIX, XPTrunc..";"..XPMaxTrunc..";"..Misc, "PARTY")
+    --SendChatMessage(msg ,"PARTY" ,"COMMON" )
+    
+    local name, standing, minu, maxu, value = GetWatchedFactionInfo();
+
+	C_ChatInfo.SendAddonMessage(MSG_PREFIX, XPTrunc..";"..XPMaxTrunc..";"..Misc ..";" ..name .. ":" .. standing, "PARTY");
 	-- DEFAULT_CHAT_FRAME:AddMessage("Your XP is currently at "..floor( (XP / XPMax)*100 ).."%.",1,0,0)
 end
 
 function handlerFunc(self, event, arg1, arg2, arg3, arg4)
-	if event == "PLAYER_XP_UPDATE" or event == "GROUP_ROSTER_UPDATE" or event == "PARTY_MEMBER_ENABLE" then
+	if event == "PLAYER_XP_UPDATE" or event == "GROUP_ROSTER_UPDATE" or event == "PARTY_MEMBER_ENABLE" or event == "UPDATE_FACTION" then
 		sendCurrXp();
 		return
-	end
+    end
 	
 	if event == "CHAT_MSG_ADDON" then
 		prefix = arg1
@@ -133,13 +136,14 @@ end
 frame:RegisterEvent("PLAYER_XP_UPDATE");
 frame:RegisterEvent("PARTY_MEMBER_ENABLE");
 frame:RegisterEvent("GROUP_ROSTER_UPDATE");
+frame:RegisterEvent("UPDATE_FACTION");
 
 frame:RegisterEvent("CHAT_MSG_ADDON")
 
 frame:SetScript("OnEvent", handlerFunc)
 
 
-function UpdateText(name, xp, maxXp, misc)
+function UpdateText(name, xp, maxXp, misc, rep)
     html =
 		"<html>"..
 		  "<body>" ..
@@ -148,7 +152,9 @@ function UpdateText(name, xp, maxXp, misc)
 			"<br/>" ..
 			  name ..
 			  "<br/>" ..
-			  "Curr XP: "..xp .. "&#47;"..maxXp .. " ("..misc..")"..
+              "Curr XP: "..xp .. "&#47;"..maxXp .. " ("..misc..")"..
+              "<br />" ..
+              "Rep: " .. 
 			"</p>"..
 		 "</body>"..
 	   "</html>";

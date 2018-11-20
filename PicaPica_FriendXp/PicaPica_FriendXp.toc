@@ -1,5 +1,5 @@
 ## Interface: 60000
-## Title: Pica Pica Friend XP
+## Title: Pica Pica Friend XP - With Reputation Tracker
 ## Notes: My first AddOn
 #PicaPica_FriendXp.lua
 PicaPica_FriendXp.xml
