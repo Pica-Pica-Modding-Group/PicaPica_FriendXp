@@ -110,7 +110,7 @@ local function ReadableNumber(num, places)
       
       local name, standing, minu, maxu, value = GetWatchedFactionInfo();
   
-      C_ChatInfo.SendAddonMessage(MSG_PREFIX, XPTrunc..";"..XPMaxTrunc..";"..Misc ..";" ..name .. ":" .. standing, "PARTY");
+      C_ChatInfo.SendAddonMessage(MSG_PREFIX, XPTrunc..";"..XPMaxTrunc..";"..Misc ..";" ..name .. ": " .. (minu-value), "PARTY");
       -- DEFAULT_CHAT_FRAME:AddMessage("Your XP is currently at "..floor( (XP / XPMax)*100 ).."%.",1,0,0)
   end
   
