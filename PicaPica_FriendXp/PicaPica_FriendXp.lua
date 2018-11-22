@@ -63,7 +63,7 @@ local function ReadableNumber(num, places)
   frame:EnableMouse(true);
   frame:SetMovable(true);
   frame:SetWidth(width);
-  frame:SetHeight(fontSize*4);
+  frame:SetHeight(fontSize*5.8);
   
   frame:SetBackdrop({bgFile = "Interface/Tooltips/UI-Tooltip-Background", 
                                               edgeFile = "Interface/Tooltips/UI-Tooltip-Border", 
